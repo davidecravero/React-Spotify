@@ -1,7 +1,7 @@
 import React from "react";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
-function List({artist, title, image, duration}) {
+function List({key, artist, title, image, duration, del}) {
 
     return (
         <div>

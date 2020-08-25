@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import List from "./List";
 
-function App() {
-
-  const musicDatabase = [{
+const App = () => {
+  // Changed musicDatabase into a state so it is editable
+  const [musicDatabase, changeDatabase] = useState([{
     artist: "Muse",
     title: "Plug In Baby",
     image: "https://images-na.ssl-images-amazon.com/images/I/31CYT67XSRL.jpg",
@@ -91,13 +91,31 @@ function App() {
     },
   
   
-  ] 
+  ]) 
 
-  return (<div className='App'>
-    {musicDatabase.map((element) => 
-    (<List artist={element.artist} title={element.title} image={element.image} duration={element.duration} />))}
+  const playItem = () => {
+
+  }
+
+  // deleteItem function creates a copy of the database, then deletes one entry
+
+  const deleteItem = (index) => {
+    const databaseCopy = [...musicDatabase];
+    databaseCopy.splice(index, 1);
+    changeDatabase(databaseCopy)
+  }
   
-    
+  return (
+    <div className='App'>
+      {musicDatabase.map((element, index) => 
+      (
+        <div key = {index}>
+          <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} /> 
+          <button onClick={() => deleteItem(index)}>Delete</button>
+        </div>
+
+      
+      ))}
     </div>)
 }
 
