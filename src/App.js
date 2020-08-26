@@ -133,7 +133,7 @@ const App = () => {
         </div>
       ))}
       <hr />
-      <Playbar />
+      <Playbar songPlaying={nowPlaying} isPlaying={isPlaying}/>
       {isPlaying && <h1>playbar demo</h1>}
     </div>
   );
