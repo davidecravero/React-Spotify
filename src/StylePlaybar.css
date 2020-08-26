@@ -1,15 +1,26 @@
+/* File designated to contain playbar style */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-.container {
+.container-playbar {
   display: flex;
   background-color: #535353;
   justify-content: center;
-  padding: 40px;
+}
+
+.container-playbar > Button {
+  padding: 0;
+  font-size: large;
+}
+
+.playBar-container {
+  background-color: #535353;
+  text-align: center;
+  margin: 20px 0 0 0;
 }
 
 .popUp {
@@ -17,15 +28,22 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 
-h3 {
-  margin: 0;
-
-  color: white;
+.popUp h3 {
+  font-size: 30px;
+}
+.popUp span {
+  margin: 20px 0;
 }
 
-p {
-  margin: 0;
-  color: white;
+.imageBottomContainer {
+  margin-left: 20px;
+}
+
+.imageBottomContainer img {
+  width: 100%;
+  margin: 1em auto;
+  border-radius: 20px;
 }
