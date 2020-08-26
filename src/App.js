@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Playbar from "./PlayBar";
+import "./StylePlaybar.css";
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
 import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css"
+
 
 const App = () => {
   // Changed musicDatabase into a state so it is editable
@@ -142,20 +144,26 @@ const App = () => {
             <Grid item xs={1}>
               <IconButton onClick={() => deleteItem(index)}><DeleteIcon /></IconButton>
             </Grid>
+
           </Grid>
         </div>
       ))}
-      
+       {/* End of Mapping */}
 
-      <hr />
+
       {/* Playbar Component, when the play is clicked, will show the artist and the title of that song */}
+      <div className='popUp'>
+        {isPlaying && (
+          <>
+            <h2>
+              {nowPlaying.title} - {nowPlaying.artist}
+            </h2>
+          </>
+        )}
+      </div>
+
       <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
-      {isPlaying && (
-        <div>
-          <h1>{nowPlaying.title}</h1>
-          <h3>{nowPlaying.artist}</h3>
-        </div>
-      )}
+
       {/* End of Playbar Component */}
     </div>
   );
