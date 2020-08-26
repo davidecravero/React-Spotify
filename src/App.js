@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Playbar from "./PlayBar";
+import Grid from '@material-ui/core/Grid';
+import "./App.css"
 
 const App = () => {
   // Changed musicDatabase into a state so it is editable
@@ -96,7 +98,6 @@ const App = () => {
       duration: "2:08",
     },
   ]);
-
   const [nowPlaying, changeSong] = useState({});
   const [isPlaying, togglePlay] = useState(false);
 
@@ -125,13 +126,23 @@ const App = () => {
 
   return (
     <div className='App'>
+
       {musicDatabase.map((element, index) => (
-        <div key={index}>
+         <div key={index}>
+          <Grid container spacing={1}>
+          <Grid item xs={10}>
           <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} />
+          </Grid>
+          <Grid item xs={1}>
           <button onClick={() => deleteItem(index)}>Delete</button>
+          </Grid>
+          <Grid item xs={1}>
           <button onClick={() => playSong(element)}>Play</button>
+          </Grid>
+          </Grid>
         </div>
       ))}
+      
       <hr />
       <Playbar songPlaying={nowPlaying} isPlaying={isPlaying}/>
       {isPlaying && <h1>playbar demo</h1>}
