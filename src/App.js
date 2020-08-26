@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Playbar from "./PlayBar";
+import "./StylePlaybar.css";
 
 const App = () => {
   // Changed musicDatabase into a state so it is editable
@@ -129,21 +130,23 @@ const App = () => {
         <div key={index}>
           <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} />
           <button onClick={() => deleteItem(index)}>Delete</button>
-          <button class='playButton' onClick={() => playSong(element)}>
-            Play
-          </button>
+          <button onClick={() => playSong(element)}>Play</button>
         </div>
       ))}
       {/* End of Mapping */}
-      <hr />
       {/* Playbar Component, when the play is clicked, will show the artist and the title of that song */}
+      <div className='popUp'>
+        {isPlaying && (
+          <>
+            <h2>
+              {nowPlaying.title} - {nowPlaying.artist}
+            </h2>
+          </>
+        )}
+      </div>
+
       <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
-      {isPlaying && (
-        <div>
-          <h1>{nowPlaying.title}</h1>
-          <h3>{nowPlaying.artist}</h3>
-        </div>
-      )}
+
       {/* End of Playbar Component */}
     </div>
   );
