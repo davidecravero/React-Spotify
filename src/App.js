@@ -112,7 +112,6 @@ const App = () => {
   });
 
   // deleteItem function creates a copy of the database, then deletes one entry
-
   const deleteItem = (index) => {
     const databaseCopy = [...musicDatabase];
     databaseCopy.splice(index, 1);
@@ -126,7 +125,7 @@ const App = () => {
 
   return (
     <div className='App'>
-
+      {/* Mapping the list from musicDatabase and generating a div for every object using map() */}
       {musicDatabase.map((element, index) => (
          <div key={index}>
           <Grid container spacing={1}>
@@ -137,15 +136,23 @@ const App = () => {
           <button onClick={() => deleteItem(index)}>Delete</button>
           </Grid>
           <Grid item xs={1}>
-          <button onClick={() => playSong(element)}>Play</button>
+          <button class='playButton' onClick={() => playSong(element)}>Play</button>
           </Grid>
           </Grid>
         </div>
       ))}
       
+
       <hr />
-      <Playbar songPlaying={nowPlaying} isPlaying={isPlaying}/>
-      {isPlaying && <h1>playbar demo</h1>}
+      {/* Playbar Component, when the play is clicked, will show the artist and the title of that song */}
+      <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
+      {isPlaying && (
+        <div>
+          <h1>{nowPlaying.title}</h1>
+          <h3>{nowPlaying.artist}</h3>
+        </div>
+      )}
+      {/* End of Playbar Component */}
     </div>
   );
 };

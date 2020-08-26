@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
+import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,7 +36,19 @@ function List({key, artist, title, image, duration}) {
     </div>
         </>
     )
-}
 
+      {/* Simone implementation - we can merge it but let's talk about it first
+function List({ key, artist, title, image, duration, del }) {
+  const [toggledRowPlay, setTogglerRowPlay] = React.useState(false);
+  return (
+    <div>
+      <div onClick={() => setTogglerRowPlay(!toggledRowPlay)}>{toggledRowPlay ? <PauseSharpIcon /> : <PlayArrowSharpIcon />}</div>
+      <p>{artist}</p>
+      <p>{title}</p>
+      <img src={image} width='150px' alt='Album Cover' />
+      <p>{duration}</p>
+    </div>
+  );*/}
+}
 
 export default List;
