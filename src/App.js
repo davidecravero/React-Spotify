@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import List from "./List";
 import Playbar from "./PlayBar";
 import "./StylePlaybar.css";
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
 import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
 import PauseSharpIcon from "@material-ui/icons/PauseSharp";
-import "./App.css"
-
+import "./App.css";
 
 const App = () => {
   // Changed musicDatabase into a state so it is editable
@@ -133,37 +132,47 @@ const App = () => {
     <div className='App'>
       {/* Mapping the list from musicDatabase and generating a div for every object using map() */}
       {musicDatabase.map((element, index) => (
-         <div key={index}>
+        <div key={index}>
           <Grid container spacing={1}>
             <Grid item xs={1}>
-              <IconButton onClick={() => playSong(element)}><PlayArrowSharpIcon /></IconButton>
+              <IconButton onClick={() => playSong(element)}>
+                <PlayArrowSharpIcon />
+              </IconButton>
             </Grid>
             <Grid item xs={10}>
               <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} />
             </Grid>
             <Grid item xs={1}>
-              <IconButton onClick={() => deleteItem(index)}><DeleteIcon /></IconButton>
+              <IconButton onClick={() => deleteItem(index)}>
+                <DeleteIcon />
+              </IconButton>
             </Grid>
-
           </Grid>
         </div>
       ))}
-       {/* End of Mapping */}
-
-
+      {/* End of Mapping */}
       {/* Playbar Component, when the play is clicked, will show the artist and the title of that song */}
-      <div className='popUp'>
-        {isPlaying && (
-          <>
-            <h2>
-              {nowPlaying.title} - {nowPlaying.artist}
-            </h2>
-          </>
-        )}
-      </div>
-
-      <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
-
+      <Grid container direction='row' className='playBar-container' maxWidth='sm'>
+        <Grid item xs={2}>
+          <div className='imageBottomContainer'>
+            <img src={nowPlaying.image} />
+          </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className='popUp'>
+            {isPlaying && (
+              <>
+                <span>
+                  <h3>
+                    {nowPlaying.title} - {nowPlaying.artist}
+                  </h3>
+                </span>
+              </>
+            )}
+          </div>
+          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
+        </Grid>
+      </Grid>{" "}
       {/* End of Playbar Component */}
     </div>
   );
