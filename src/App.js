@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
-import PLaybar from "./PlayBar";
+import Playbar from "./PlayBar";
 
 const App = () => {
   // Changed musicDatabase into a state so it is editable
-  const [musicDatabase, changeDatabase] = useState([{
-    artist: "Muse",
-    title: "Plug In Baby",
-    image: "https://images-na.ssl-images-amazon.com/images/I/31CYT67XSRL.jpg",
-    duration: "3:38"
-    }, 
+  const [musicDatabase, changeDatabase] = useState([
+    {
+      artist: "Muse",
+      title: "Plug In Baby",
+      image: "https://images-na.ssl-images-amazon.com/images/I/31CYT67XSRL.jpg",
+      duration: "3:38",
+    },
     {
       artist: "Stardust",
       title: "Music Sounds Better With You",
@@ -95,7 +96,7 @@ const App = () => {
       duration: "2:08",
     },
   ]);
-  
+
   const [nowPlaying, changeSong] = useState({});
   const [isPlaying, togglePlay] = useState(false);
 
@@ -103,39 +104,39 @@ const App = () => {
   // If clause checks whether an empty Object is in the state
   useEffect(() => {
     if (Object.keys(nowPlaying).length === 0) {
-      document.title = 'Welcome to Spotify';
+      document.title = "Welcome to Spotify";
     } else {
       document.title = `\u25BA ${nowPlaying.title}`;
-    }});
+    }
+  });
 
   // deleteItem function creates a copy of the database, then deletes one entry
 
   const deleteItem = (index) => {
     const databaseCopy = [...musicDatabase];
     databaseCopy.splice(index, 1);
-    changeDatabase(databaseCopy)
-  }
-  
+    changeDatabase(databaseCopy);
+  };
+
   const playSong = (song) => {
     changeSong(song);
     togglePlay(!isPlaying);
-  }
+  };
 
   return (
     <div className='App'>
-      {musicDatabase.map((element, index) => 
-      (
-        <div key = {index}>
-          <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} /> 
+      {musicDatabase.map((element, index) => (
+        <div key={index}>
+          <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} />
           <button onClick={() => deleteItem(index)}>Delete</button>
           <button onClick={() => playSong(element)}>Play</button>
         </div>
       ))}
       <hr />
       <Playbar />
-      //{isPlaying && <h1>playbar demo</h1>}
-    </div>)
-
-}
+      {isPlaying && <h1>playbar demo</h1>}
+    </div>
+  );
+};
 
 export default App;
