@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "./List";
 
 const App = () => {
@@ -92,10 +92,17 @@ const App = () => {
   
   
   ]) 
+  const [nowPlaying, changeSong] = useState({});
+  const [isPlaying, togglePlay] = useState(false);
 
-  const playItem = () => {
-
-  }
+  // useEffect Test case - change Document Title if State changes
+  // If clause checks whether an empty Object is in the state
+  useEffect(() => {
+    if (Object.keys(nowPlaying).length === 0) {
+      document.title = 'Welcome to Spotify';
+    } else {
+      document.title = `\u25BA ${nowPlaying.title}`;
+    }});
 
   // deleteItem function creates a copy of the database, then deletes one entry
 
@@ -105,6 +112,11 @@ const App = () => {
     changeDatabase(databaseCopy)
   }
   
+  const playSong = (song) => {
+    changeSong(song);
+    togglePlay(!isPlaying);
+  }
+
   return (
     <div className='App'>
       {musicDatabase.map((element, index) => 
@@ -112,10 +124,10 @@ const App = () => {
         <div key = {index}>
           <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} /> 
           <button onClick={() => deleteItem(index)}>Delete</button>
+          <button onClick={() => playSong(element)}>Play</button>
         </div>
-
-      
       ))}
+      {isPlaying && <h1>playbar demo</h1>}
     </div>)
 }
 
