@@ -20,21 +20,19 @@ function List({key, artist, title, image, duration}) {
 
     const classes = useStyles();
     return (
-        <>
-        <div className={classes.root}>
+    <div className={classes.root}>
       <Grid container spacing={1}>
-        <Grid item xs={4}>
+        <Grid item xs={5}>
           <Paper className={classes.paper}>{artist}</Paper>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={5}>
           <Paper className={classes.paper}>{title}</Paper>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={2}>
           <Paper className={classes.paper}>{duration}</Paper>
         </Grid>
       </Grid>
     </div>
-        </>
     )
 
       {/* Simone implementation - we can merge it but let's talk about it first

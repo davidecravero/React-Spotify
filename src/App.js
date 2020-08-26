@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import List from "./List";
 import Playbar from "./PlayBar";
 import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
+import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css"
 
 const App = () => {
@@ -120,7 +124,7 @@ const App = () => {
 
   const playSong = (song) => {
     changeSong(song);
-    togglePlay(!isPlaying);
+    togglePlay(true);
   };
 
   return (
@@ -129,15 +133,15 @@ const App = () => {
       {musicDatabase.map((element, index) => (
          <div key={index}>
           <Grid container spacing={1}>
-          <Grid item xs={10}>
-          <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} />
-          </Grid>
-          <Grid item xs={1}>
-          <button onClick={() => deleteItem(index)}>Delete</button>
-          </Grid>
-          <Grid item xs={1}>
-          <button class='playButton' onClick={() => playSong(element)}>Play</button>
-          </Grid>
+            <Grid item xs={1}>
+              <IconButton onClick={() => playSong(element)}><PlayArrowSharpIcon /></IconButton>
+            </Grid>
+            <Grid item xs={10}>
+              <List artist={element.artist} title={element.title} image={element.image} duration={element.duration} />
+            </Grid>
+            <Grid item xs={1}>
+              <IconButton onClick={() => deleteItem(index)}><DeleteIcon /></IconButton>
+            </Grid>
           </Grid>
         </div>
       ))}
