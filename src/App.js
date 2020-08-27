@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Playbar from "./PlayBar";
-import "./StylePlaybar.css";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
 import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
+import "./StylePlaybar.css";
 
 const App = () => {
   // Changed musicDatabase into a state so it is editable
@@ -160,15 +160,29 @@ const App = () => {
         </Grid>
         <Grid item xs={6}>
           <div className='popUp'>
-            {isPlaying && (
+            {/*  =============== TO BE DISCUSSED =============== */}
+            {/* {isPlaying && (
               <>
                 <span>
-                  <h3>
-                    {nowPlaying.title} - {nowPlaying.artist}
-                  </h3>
+                  <h3></h3>
                 </span>
               </>
-            )}
+            )} */}
+            {/*  =============== TO BE DISCUSSED =============== */}
+            <>
+              <span>
+                <h3></h3>
+              </span>
+            </>
+            {/* Duplicate of <span> above, this way the huge gap has been filled, leaving the playbar enough space */}
+            <>
+              <span>
+                <h3>
+                  {nowPlaying.title}
+                  {nowPlaying.artist}
+                </h3>
+              </span>
+            </>
           </div>
           <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
         </Grid>

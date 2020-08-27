@@ -29,6 +29,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 0;
+  height: 140px;
 }
 
 .popUp h3 {
