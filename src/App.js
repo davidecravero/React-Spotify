@@ -158,7 +158,7 @@ const App = () => {
             <img src={nowPlaying.image} />
           </div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={8}>
           <div className='popUp'>
             {/*  =============== TO BE DISCUSSED =============== */}
             {/* {isPlaying && (
@@ -175,16 +175,20 @@ const App = () => {
               </span>
             </>
             {/* Duplicate of <span> above, this way the huge gap has been filled, leaving the playbar enough space */}
-            <>
-              <span>
-                <h3>
-                  {nowPlaying.title}
-                  {nowPlaying.artist}
-                </h3>
-              </span>
-            </>
+            {isPlaying && (
+              <>
+                <span>
+                  <h3>
+                    {nowPlaying.title} - {nowPlaying.artist}
+                  </h3>
+                </span>
+              </>
+            )}
           </div>
           <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
+        </Grid>
+        <Grid item xs={2}>
+          <div className='ghostContainer'></div>
         </Grid>
       </Grid>{" "}
       {/* End of Playbar Component */}
