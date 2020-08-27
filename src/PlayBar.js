@@ -7,7 +7,7 @@ import { Button } from "@material-ui/core";
 import "./StylePlaybar.css";
 
 
-export default function SimpleBottomNavigation({last, random}) {
+export default function SimpleBottomNavigation({last, random, isPlaying, togglePlay}) {
   const [toggled, setToggler] = React.useState(false); // It is possible to invoke the useState hook also withouth importing the react component. A boolean it set in order for a conditional operator to run a condition that returns the pause icon.
 
   return (
@@ -16,8 +16,8 @@ export default function SimpleBottomNavigation({last, random}) {
       <Button size='large'>
         <SkipPreviousIcon fontSize='large' onClick={last} />
       </Button>
-      <Button size='large' onClick={() => setToggler(!toggled)}>
-        {toggled ? <PauseSharpIcon fontSize='large' /> : <PlayArrowSharpIcon fontSize='large' />}
+      <Button size='large' onClick={() => togglePlay(!isPlaying)}>
+        {isPlaying ? <PauseSharpIcon fontSize='large' /> : <PlayArrowSharpIcon fontSize='large' />}
       </Button>
       <Button>
 
