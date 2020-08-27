@@ -10,6 +10,7 @@ body {
   display: flex;
   background-color: #535353;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .container-playbar > Button {
@@ -20,7 +21,7 @@ body {
 .playBar-container {
   background-color: #535353;
   text-align: center;
-  margin: 20px 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .popUp {
@@ -29,22 +30,32 @@ body {
   display: flex;
   justify-content: center;
   padding: 0;
-  height: 140px;
+  height: 80px;
 }
 
 .popUp h3 {
   font-size: 30px;
+  margin: 0;
+  padding-bottom: 0;
 }
 .popUp span {
   margin: 20px 0;
 }
 
 .imageBottomContainer {
-  margin-left: 20px;
+  margin: 0 20px 0 20px;
+
+  height: 150px;
+  padding: 0;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .imageBottomContainer img {
   width: 100%;
-  margin: 1em auto;
   border-radius: 20px;
+  position: relative;
+  width: 130px;
 }

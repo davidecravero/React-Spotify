@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from "@material-ui/core";
+import Head from "./Head";
 import List from "./List";
 import Playbar from "./PlayBar";
 import Grid from "@material-ui/core/Grid";
@@ -10,25 +11,23 @@ import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
 import "./StylePlaybar.css";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    padding: 0
+    padding: 0,
   },
   paper: {
     padding: 0,
-    textAlign: 'center',
-    backgroundColor: '#212121',
-    color: '#1ED760'
+    textAlign: "center",
+    backgroundColor: "#212121",
+    color: "#1ED760",
   },
   madeUp: {
     padding: 0,
-    maxHeight: '40px',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-
+    maxHeight: "40px",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 const App = () => {
@@ -44,7 +43,7 @@ const App = () => {
     {
       artist: "Stardust",
       title: "Music Sounds Better With You",
-      image: "https://images-na.ssl-images-amazon.com/images/I/41jcdb4o0nL._SX450_.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/en/e/ef/Stardust_-_Music_Sounds_Better_with_You.png",
       duration: "4:23",
     },
     {
@@ -74,7 +73,7 @@ const App = () => {
     {
       artist: "Blue Boy",
       title: "Remember Me",
-      image: "https://img.discogs.com/b2chysrl23j0RH7bzh3UEAoHRmU=/fit-in/600x525/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-65410-1471732490-6399.jpeg.jpg",
+      image: "https://static.qobuz.com/images/covers/pa/h3/tpe9lly0sh3pa_600.jpg",
       duration: "7:04",
     },
     {
@@ -86,7 +85,7 @@ const App = () => {
     {
       artist: "Bowling For Soup",
       title: "1985",
-      image: "https://images-na.ssl-images-amazon.com/images/I/B1osavSNHJS._SL1000_.png",
+      image: "https://e.snmc.io/i/600/w/b7251132d2e8c264cfeecf69f8b0e956/2987176",
       duration: "3:13",
     },
     {
@@ -167,6 +166,7 @@ const App = () => {
 
   return (
     <div className='App'>
+      <Head />
       {/* Mapping the list from musicDatabase and generating a div for every object using map() */}
       {musicDatabase.map((element, index) => (
         <div key={index}>
