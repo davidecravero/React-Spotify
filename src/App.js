@@ -185,7 +185,7 @@ const App = () => {
               </>
             )}
           </div>
-          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
+          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong}/>
         </Grid>
       </Grid>{" "}
       {/* End of Playbar Component */}
