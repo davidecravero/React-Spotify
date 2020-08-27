@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { makeStyles } from '@material-ui/core'
 import List from "./List";
 import Playbar from "./PlayBar";
 import Grid from "@material-ui/core/Grid";
@@ -9,8 +10,30 @@ import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
 import "./StylePlaybar.css";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    padding: 0
+  },
+  paper: {
+    padding: 0,
+    textAlign: 'center',
+    backgroundColor: '#212121',
+    color: '#1ED760'
+  },
+  madeUp: {
+    padding: 0,
+    backgroundColor: 'white',
+    maxHeight: '30px',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+
+}));
+
 
 const App = () => {
+  const classes = useStyles();
   // Changed musicDatabase into a state so it is editable
   const [musicDatabase, changeDatabase] = useState([
     {
@@ -148,7 +171,7 @@ const App = () => {
       {/* Mapping the list from musicDatabase and generating a div for every object using map() */}
       {musicDatabase.map((element, index) => (
         <div key={index}>
-          <Grid container spacing={1}>
+          <Grid container spacing={0} className={classes.madeUp}>
             <Grid item xs={1}>
               <IconButton onClick={() => playSong(element)}>
                 <PlayArrowSharpIcon />

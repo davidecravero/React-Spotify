@@ -4,16 +4,24 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
 import PauseSharpIcon from "@material-ui/icons/PauseSharp";
+import "./List.css"
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      padding: 0
     },
     paper: {
-      padding: theme.spacing(2),
       textAlign: 'center',
-      color: theme.palette.text.secondary,
+      backgroundColor: '#212121',
+      height: "100%",
+      color: '#1ED760'
     },
+    madeUp: {
+      padding: 0,
+      backgroundColor: 'white'
+    }
+
   }));
 
 function List({key, artist, title, image, duration}) {
@@ -21,8 +29,8 @@ function List({key, artist, title, image, duration}) {
     const classes = useStyles();
     return (
     <div className={classes.root}>
-      <Grid container spacing={1}>
-        <Grid item xs={5}>
+      <Grid container spacing={0} className={classes.madeUp}>
+        <Grid item xs={5} className={classes.madeUp}>
           <Paper className={classes.paper}>{artist}</Paper>
         </Grid>
         <Grid item xs={5}>
