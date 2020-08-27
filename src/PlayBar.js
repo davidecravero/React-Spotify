@@ -14,7 +14,7 @@ export default function SimpleBottomNavigation({last, random}) {
     // Return a div with PlayBar component, Buttons contain play icons
     <div className='container-playbar' maxWidth='sm'>
       <Button size='large'>
-        <SkipPreviousIcon fontSize='large' {last} />
+        <SkipPreviousIcon fontSize='large' onClick={last} />
       </Button>
       <Button size='large' onClick={() => setToggler(!toggled)}>
         {toggled ? <PauseSharpIcon fontSize='large' /> : <PlayArrowSharpIcon fontSize='large' />}
