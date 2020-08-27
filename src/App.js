@@ -9,7 +9,6 @@ import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
 import "./StylePlaybar.css";
 
-
 const App = () => {
   // Changed musicDatabase into a state so it is editable
   const [musicDatabase, changeDatabase] = useState([
@@ -129,14 +128,14 @@ const App = () => {
 
   // Multiplies Math.random with the length of the database to find a random index
   const randomSong = () => {
-    const randomSong = musicDatabase[Math.floor(Math.random()*musicDatabase.length)];
+    const randomSong = musicDatabase[Math.floor(Math.random() * musicDatabase.length)];
     playSong(randomSong);
-  }
+  };
 
   const lastSong = () => {
-    const lastSong = playHistory[playHistory.length-2];
+    const lastSong = playHistory[playHistory.length - 2];
     playSong(lastSong);
-  }
+  };
 
   const playSong = (song) => {
     changeSong(song);
@@ -175,15 +174,6 @@ const App = () => {
         </Grid>
         <Grid item xs={8}>
           <div className='popUp'>
-            {/*  =============== TO BE DISCUSSED =============== */}
-            {/* {isPlaying && (
-              <>
-                <span>
-                  <h3></h3>
-                </span>
-              </>
-            )} */}
-            {/*  =============== TO BE DISCUSSED =============== */}
             <>
               <span>
                 <h3></h3>
@@ -200,7 +190,7 @@ const App = () => {
               </>
             )}
           </div>
-          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong}/>
+          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong} />
         </Grid>
         <Grid item xs={2}>
           <div className='ghostContainer'></div>
