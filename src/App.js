@@ -24,8 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   madeUp: {
     padding: 0,
-    backgroundColor: 'white',
-    maxHeight: '30px',
+    maxHeight: '40px',
     justifyContent: 'center',
     alignItems: 'center'
   }

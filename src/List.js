@@ -14,14 +14,11 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       textAlign: 'center',
       backgroundColor: '#212121',
-      height: "100%",
       color: '#1ED760'
     },
     madeUp: {
       padding: 0,
-      backgroundColor: 'white'
     }
-
   }));
 
 function List({key, artist, title, image, duration}) {
