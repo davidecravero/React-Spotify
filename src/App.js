@@ -9,6 +9,7 @@ import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
 import "./StylePlaybar.css";
 
+
 const App = () => {
   // Changed musicDatabase into a state so it is editable
   const [musicDatabase, changeDatabase] = useState([
@@ -105,14 +106,17 @@ const App = () => {
   ]);
   const [nowPlaying, changeSong] = useState({});
   const [isPlaying, togglePlay] = useState(false);
+  const [playHistory, addHistory] = useState([]);
 
   // useEffect Test case - change Document Title if State changes
   // If clause checks whether an empty Object is in the state
+  // When a new song is played it gets added to the history
   useEffect(() => {
     if (Object.keys(nowPlaying).length === 0) {
       document.title = "Welcome to Spotify";
     } else {
       document.title = `\u25BA ${nowPlaying.title}`;
+      playHistory.push(nowPlaying);
     }
   });
 
@@ -122,6 +126,17 @@ const App = () => {
     databaseCopy.splice(index, 1);
     changeDatabase(databaseCopy);
   };
+
+  // Multiplies Math.random with the length of the database to find a random index
+  const randomSong = () => {
+    const randomSong = musicDatabase[Math.floor(Math.random()*musicDatabase.length)];
+    playSong(randomSong);
+  }
+
+  const lastSong = () => {
+    const lastSong = playHistory[playHistory.length-2];
+    playSong(lastSong);
+  }
 
   const playSong = (song) => {
     changeSong(song);
@@ -184,7 +199,7 @@ const App = () => {
               </span>
             </>
           </div>
-          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} />
+          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong}/>
         </Grid>
       </Grid>{" "}
       {/* End of Playbar Component */}
