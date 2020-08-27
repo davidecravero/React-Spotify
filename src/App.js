@@ -9,7 +9,7 @@ import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
 import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
 import "./StylePlaybar.css";
-
+import Head from "./Head";
 
 const useStyles = makeStyles((theme) => ({
   root: {
