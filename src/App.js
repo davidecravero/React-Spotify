@@ -10,6 +10,7 @@ import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
 import "./StylePlaybar.css";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -30,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   }
 
 }));
-
 
 const App = () => {
   const classes = useStyles();
@@ -152,14 +152,14 @@ const App = () => {
 
   // Multiplies Math.random with the length of the database to find a random index
   const randomSong = () => {
-    const randomSong = musicDatabase[Math.floor(Math.random()*musicDatabase.length)];
+    const randomSong = musicDatabase[Math.floor(Math.random() * musicDatabase.length)];
     playSong(randomSong);
-  }
+  };
 
   const lastSong = () => {
-    const lastSong = playHistory[playHistory.length-2];
+    const lastSong = playHistory[playHistory.length - 2];
     playSong(lastSong);
-  }
+  };
 
   const playSong = (song) => {
     changeSong(song);
@@ -196,33 +196,28 @@ const App = () => {
             <img src={nowPlaying.image} />
           </div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={8}>
           <div className='popUp'>
-            {/*  =============== TO BE DISCUSSED =============== */}
-            {/* {isPlaying && (
-              <>
-                <span>
-                  <h3></h3>
-                </span>
-              </>
-            )} */}
-            {/*  =============== TO BE DISCUSSED =============== */}
             <>
               <span>
                 <h3></h3>
               </span>
             </>
             {/* Duplicate of <span> above, this way the huge gap has been filled, leaving the playbar enough space */}
-            <>
-              <span>
-                <h3>
-                  {nowPlaying.title}
-                  {nowPlaying.artist}
-                </h3>
-              </span>
-            </>
+            {isPlaying && (
+              <>
+                <span>
+                  <h3>
+                    {nowPlaying.title} - {nowPlaying.artist}
+                  </h3>
+                </span>
+              </>
+            )}
           </div>
-          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong}/>
+          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong} />
+        </Grid>
+        <Grid item xs={2}>
+          <div className='ghostContainer'></div>
         </Grid>
       </Grid>{" "}
       {/* End of Playbar Component */}
