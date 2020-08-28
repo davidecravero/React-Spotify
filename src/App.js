@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   madeUp: {
     padding: 0,
-    maxHeight: "40px",
-    justifyContent: "center",
-    alignItems: "center",
+    maxHeight: '40px',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 }));
 
@@ -215,7 +215,7 @@ const App = () => {
               </>
             )}
           </div>
-          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong} />
+          <Playbar songPlaying={nowPlaying} isPlaying={isPlaying} last={lastSong} random={randomSong} togglePlay={togglePlay} />
         </Grid>
         <Grid item xs={2}>
           <div className='ghostContainer'></div>
