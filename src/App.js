@@ -1,13 +1,15 @@
+// = = = = Spotify alike MusicApp = = = = //
+
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
 import Head from "./Head";
 import List from "./List";
 import Playbar from "./PlayBar";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@material-ui/core/Grid"; // Page Layout
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
-import PauseSharpIcon from "@material-ui/icons/PauseSharp";
+// import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import "./App.css";
 import "./StylePlaybar.css";
 
@@ -202,7 +204,7 @@ const App = () => {
                 <h3></h3>
               </span>
             </>
-            {/* Duplicate of <span> above, this way the huge gap has been filled, leaving the playbar enough space */}
+            {/* Duplicate of <span> above, in this way the huge gap has been filled, leaving the playbar enough space */}
             {isPlaying && (
               <>
                 <span>
