@@ -2,16 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
-import Head from "./Head";
-import List from "./List";
-import Playbar from "./PlayBar";
+import Head from "./Components/Head";
+import List from "./Components/List";
+import Playbar from "./Components/PlayBar";
 import Grid from "@material-ui/core/Grid"; // Page Layout
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import PlayArrowSharpIcon from "@material-ui/icons/PlayArrowSharp";
 // import PauseSharpIcon from "@material-ui/icons/PauseSharp";
-import "./App.css";
-import "./StylePlaybar.css";
+import "./Styles/App.css";
+import "./Styles/StylePlaybar.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   madeUp: {
     padding: 0,
-    maxHeight: '40px',
-    justifyContent: 'center',
-    alignItems: 'center'
+    maxHeight: "40px",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
 

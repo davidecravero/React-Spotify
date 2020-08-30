@@ -4,10 +4,9 @@ import PauseSharpIcon from "@material-ui/icons/PauseSharp";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { Button } from "@material-ui/core";
-import "./StylePlaybar.css";
+import "../Styles/StylePlaybar.css";
 
-export default function SimpleBottomNavigation({last, random, isPlaying, togglePlay}) {
-
+export default function SimpleBottomNavigation({ last, random, isPlaying, togglePlay }) {
   const [toggled, setToggler] = React.useState(false); // It is possible to invoke the useState hook also withouth importing the react component. A boolean it set in order for a conditional operator to run a condition that returns the pause icon.
 
   return (
